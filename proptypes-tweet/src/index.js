@@ -46,6 +46,10 @@ function Tweet({ tweet }) {
 	);
 }
 
+Tweet.propTypes = {
+	tweet: PropTypes.object.isRequired,
+};
+
 const testTweet = {
 	message: "Something about cats",
 	gravatar: "80ad7e627570e773e0048ffb5208bba3",
@@ -63,6 +67,10 @@ function Avatar({ hash }) {
 	return <img src={url} className="avatar" alt="avatar" />;
 }
 
+Avatar.propTypes = {
+	hash: PropTypes.string.isRequired,
+};
+
 function Message({ text }) {
 	return <div className="message">{text}</div>;
 }
@@ -77,9 +85,20 @@ function Author({ author }) {
 	);
 }
 
+Author.propTypes = {
+	author: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		handle: PropTypes.string.isRequired,
+	}).isRequired,
+};
+
 const Time = ({ time }) => {
 	const timeString = moment(time).fromNow();
 	return <span className="time">{timeString}</span>;
+};
+
+Time.propTypes = {
+	time: PropTypes.string.isRequired,
 };
 
 const ReplyButton = () => <i className="fa fa-reply reply-button" />;
@@ -106,6 +125,10 @@ const LikeButton = ({ count }) => (
 		{count > 0 && <span className="like-count">{count}</span>}
 	</span>
 );
+
+LikeButton.propTypes = {
+	count: PropTypes.number,
+};
 const MoreOptionsButton = () => (
 	<i className="fa fa-ellipsis-h more-options-button" />
 );
