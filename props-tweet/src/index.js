@@ -19,7 +19,7 @@ Comment.propTypes = {
 	message: PropTypes.string.isRequired,
 	author: PropTypes.string.isRequired,
 	like: PropTypes.number.isRequired,
-	num: PropTypes.oneOf([1, 2, 3, 4, 5, 6]).isRequired,
+	num: PropTypes.oneOf([1, 2, 3, 4, 5, 6]).isRequired
 };
 
 function Tweet({ tweet }) {
